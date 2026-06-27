@@ -23,3 +23,4 @@ class SessionLog(models.Model):
     duration = models.DurationField()
     hourly_rate = models.DecimalField(max_digits=10, decimal_places=6)
     status = models.CharField(max_length=55, choices= Status.choices, default = base_status)
+

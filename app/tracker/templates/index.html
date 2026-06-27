@@ -1,0 +1,10 @@
+<ul>
+    {% for session in sessions %}
+        <li>
+            {% if session.status == "ON_GOING" %}
+                {{ session.student }}
+            {% endif %}
+            {% endfor %}
+        </li>
+    <p>Total Earning: {{ total_expected_earning }}</p>        
+</ul>
