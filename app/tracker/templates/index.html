@@ -1,10 +1,31 @@
-<ul>
-    {% for session in sessions %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matrix_Log</title>
+</head>
+<body>
+    <h1>TUtoring Dashboard</h1>
+    <ul>
+        {% for student in students %}
         <li>
-            {% if session.status == "ON_GOING" %}
-                {{ session.student }}
-            {% endif %}
-            {% endfor %}
+            Name: {{ student.name }} Age: {{ student.age }} Course: {{ student.course }}
         </li>
-    <p>Total Earning: {{ total_expected_earning }}</p>        
-</ul>
+        {% empty %}
+        <li>No Data Found</li>
+        {% endfor %}
+    </ul>
+    <h2>Financial Overview</h2>
+    <br>
+    <p>Total Earnings: ${{ total_earning }}</p>
+    
+    <h2>Log new Session</h2>
+    <form method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit">Add New Session</button>
+    </form>
+
+</body>
+</html>
